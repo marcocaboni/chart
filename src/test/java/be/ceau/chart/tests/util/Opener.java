@@ -45,7 +45,6 @@ public class Opener {
 		out.close();
 
 		Desktop.getDesktop().browse(tmp.toURI());
-
 	}
 
 	private static String createWebPage(String type, String json) {
@@ -63,7 +62,7 @@ public class Opener {
 				.append(line)
 				.append("<meta name='author' content='Marceau Dewilde'>")
 				.append(line)
-				.append("<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js'></script>")
+				.append("<script src='").append(getChartjsPath()).append("'></script>")
 				.append(line)
 				.append("<script>")
 				.append("function r(e,t){new Chart(document.getElementById(e).getContext('2d'),t)}")
@@ -86,6 +85,10 @@ public class Opener {
 				.append(line)
 				.append("</html>")
 				.toString();
+	}
+
+	private static String getChartjsPath() {
+		return new File("src/main/resources/Chart.js").getAbsolutePath();
 	}
 
 }
