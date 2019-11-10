@@ -52,6 +52,11 @@ public class BarDataset extends BackgroundBorderHoverDataset<BarDataset, BigDeci
 	private final List<BorderSkipped> borderSkipped = new OptionalArray<BorderSkipped>();
 
 	/**
+	 * @see #setBorderSkipped(List)
+	 */
+	private String stack;
+
+	/**
 	 * @see #setLabel(String)
 	 */
 	public String getLabel() {
@@ -173,6 +178,21 @@ public class BarDataset extends BackgroundBorderHoverDataset<BarDataset, BigDeci
 	 */
 	public BarDataset addData(double data) {
 		this.data.add(new BigDecimal(String.valueOf(data)));
+		return this;
+	}
+
+	/**
+	 * @see #setStack(String)
+	 */
+	public String getStack() {
+		return stack;
+	}
+
+	/**
+	 * The name of the stack the dataset appears in, for multi stack charts
+	 */
+	public BarDataset setStack(String stack) {
+		this.stack = stack;
 		return this;
 	}
 
