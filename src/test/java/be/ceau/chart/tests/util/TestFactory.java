@@ -48,6 +48,7 @@ import be.ceau.chart.enums.BorderSkipped;
 import be.ceau.chart.enums.FontFamily;
 import be.ceau.chart.enums.ScalesPosition;
 import be.ceau.chart.javascript.JavaScriptFunction;
+import be.ceau.chart.options.elements.Fill;
 import be.ceau.chart.options.scales.LinearScale;
 import be.ceau.chart.options.scales.LinearScales;
 
@@ -73,6 +74,9 @@ public class TestFactory {
 		}
 		if (RadarData.class.equals(clazz)) {
 			return (T) newRadarData();
+		}
+		if (Fill.class.equals(clazz)) {
+			return (T) newFill();
 		}
 		// fallback to fully generated instance
 		return generatedInstance(clazz);
@@ -337,4 +341,7 @@ public class TestFactory {
 		return data;
 	}
 
+	public static Fill<Boolean> newFill() {
+		return new Fill<Boolean>(maybe());
+	}
 }
