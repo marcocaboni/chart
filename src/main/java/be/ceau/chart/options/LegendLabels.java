@@ -69,6 +69,11 @@ public class LegendLabels {
 	private Boolean usePointStyle;
 
 	/**
+	 * @see #setFilter(JavaScriptFunction)
+	 */
+	private JavaScriptFunction filter;
+
+	/**
 	 * @see #setBoxWidth(Integer)
 	 */
 	public Integer getBoxWidth() {
@@ -233,6 +238,27 @@ public class LegendLabels {
 	 */
 	public LegendLabels setUsePointStyle(Boolean usePointStyle) {
 	    this.usePointStyle = usePointStyle;
+	    return this;
+	}
+
+	/**
+	 * @see #setFilter(JavaScriptFunction)
+	 */
+	public JavaScriptFunction getFilter() {
+		return filter;
+	}
+
+	/**
+	 * <p>
+	 * Filters legend items out of the legend. Receives 2 parameters, a "Legend Item" and the chart data.
+	 * </p>
+	 *
+	 * <p>
+	 * Default {@code null}
+	 * </p>
+	 */
+	public LegendLabels setFilter(JavaScriptFunction filter) {
+		this.filter = filter;
 	    return this;
 	}
 
