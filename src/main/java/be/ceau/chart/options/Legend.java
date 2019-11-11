@@ -55,6 +55,11 @@ public class Legend {
 	private LegendLabels labels;
 
 	/**
+	 * @see #setReverse(Boolean)
+	 */
+	private Boolean reverse;
+
+	/**
 	 * @see #setDisplay(Boolean)
 	 */
 	public Boolean getDisplay() {
@@ -137,6 +142,27 @@ public class Legend {
 	public Legend setLabels(LegendLabels labels) {
 	    this.labels = labels;
 	    return this;
+	}
+
+	/**
+	 * @see #setReverse(Boolean)
+	 */
+	public Boolean getReverse() {
+		return this.reverse;
+	}
+
+	/**
+	 * <p>
+	 * Legend will show datasets in reverse order.
+	 * </p>
+	 *
+	 * <p>
+	 * Default {@code false}
+	 * </p>
+	 */
+	public Legend setReverse(Boolean reverse) {
+		this.reverse = reverse;
+		return this;
 	}
 	
 	public static enum Position {
