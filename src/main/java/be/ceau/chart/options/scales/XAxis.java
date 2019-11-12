@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.dataset.BarDataset;
 import be.ceau.chart.options.ticks.Ticks;
 
 @JsonInclude(Include.NON_EMPTY)
@@ -66,6 +67,7 @@ public class XAxis<T extends Ticks<T>> {
 	 * 
 	 * @see #setCategoryPercentage(BigDecimal categoryPercentage)
 	 */
+	@Deprecated
 	private BigDecimal categoryPercentage;
 
 	/**
@@ -73,10 +75,13 @@ public class XAxis<T extends Ticks<T>> {
 	 * 
 	 * @see #setBarPercentage(BigDecimal barPercentage)
 	 */
+	@Deprecated
 	private BigDecimal barPercentage;
 
+	@Deprecated
 	private BigDecimal barThickness;
 
+	@Deprecated
 	private BigDecimal maxBarThickness;
 
 	/**
@@ -164,6 +169,7 @@ public class XAxis<T extends Ticks<T>> {
 	/**
 	 * @see #setCategoryPercentage(BigDecimal categoryPercentage)
 	 */
+	@Deprecated
 	public BigDecimal getCategoryPercentage() {
 		return this.categoryPercentage;
 	}
@@ -171,7 +177,10 @@ public class XAxis<T extends Ticks<T>> {
 	/**
 	 * Percent (0-1) of the available width (the space between the gridlines for small datasets) for
 	 * each data-point to use for the bars.
+	 * 
+	 * @deprecated use {@link BarDataset#setCategoryPercentage(BigDecimal)}
 	 */
+	@Deprecated
 	public XAxis<T> setCategoryPercentage(BigDecimal categoryPercentage) {
 		this.categoryPercentage = categoryPercentage;
 		return this;
@@ -180,6 +189,7 @@ public class XAxis<T extends Ticks<T>> {
 	/**
 	 * @see #setBarPercentage(BigDecimal barPercentage)
 	 */
+	@Deprecated
 	public BigDecimal getBarPercentage() {
 		return this.barPercentage;
 	}
@@ -187,7 +197,10 @@ public class XAxis<T extends Ticks<T>> {
 	/**
 	 * Percent (0-1) of the available width each bar should be within the category percentage. 1.0 will
 	 * take the whole category width and put the bars right next to each other.
+	 * 
+	 * @deprecated use {@link BarDataset#setBarPercentage(BigDecimal)}
 	 */
+	@Deprecated
 	public XAxis<T> setBarPercentage(BigDecimal barPercentage) {
 		this.barPercentage = barPercentage;
 		return this;
@@ -196,6 +209,7 @@ public class XAxis<T extends Ticks<T>> {
 	/**
 	 * @see #setBarThickness(BigDecimal)
 	 */
+	@Deprecated
 	public BigDecimal getBarThickness() {
 		return barThickness;
 	}
@@ -204,7 +218,10 @@ public class XAxis<T extends Ticks<T>> {
 	 * Manually set width of each bar in pixels. If not set, the base sample widths are calculated
 	 * automatically so that they take the full available widths without overlap. Then, the bars are
 	 * sized using barPercentage and categoryPercentage.
+	 * 
+	 * @deprecated use {@link BarDataset#setBarThickness(BigDecimal)}
 	 */
+	@Deprecated
 	public XAxis<T> setBarThickness(BigDecimal barThickness) {
 		this.barThickness = barThickness;
 		return this;
@@ -213,13 +230,17 @@ public class XAxis<T extends Ticks<T>> {
 	/**
 	 * @see #setGridLines(GridLines gridLines)
 	 */
+	@Deprecated
 	public BigDecimal getMaxBarThickness() {
 		return maxBarThickness;
 	}
 
 	/**
 	 * Set this to ensure that bars are not sized thicker than this.
+	 * 
+	 * @deprecated use {@link BarDataset#setMaxBarThickness(BigDecimal)}
 	 */
+	@Deprecated
 	public XAxis<T> setMaxBarThickness(BigDecimal maxBarThickness) {
 		this.maxBarThickness = maxBarThickness;
 		return this;

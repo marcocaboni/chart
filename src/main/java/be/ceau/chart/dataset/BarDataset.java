@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.enums.BorderSkipped;
 import be.ceau.chart.objects.OptionalArray;
+import be.ceau.chart.options.scales.GridLines;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -55,6 +56,31 @@ public class BarDataset extends BackgroundBorderHoverDataset<BarDataset, BigDeci
 	 * @see #setBorderSkipped(List)
 	 */
 	private String stack;
+
+	/**
+	 * @see #setBarPercentage(BigDecimal barPercentage)
+	 */
+	private BigDecimal barPercentage;
+
+	/**
+	 * @see #setCategoryPercentage(BigDecimal categoryPercentage)
+	 */
+	private BigDecimal categoryPercentage;
+
+	/**
+	 * @see #setBarThickness(BarThickness)
+	 */
+	private BarThickness barThickness;
+
+	/**
+	 * @see #setMaxBarThickness(BigDecimal)
+	 */
+	private BigDecimal maxBarThickness;
+
+	/**
+	 * @see #setMinBarLength(BigDecimal)
+	 */
+	private BigDecimal minBarLength;
 
 	/**
 	 * @see #setLabel(String)
@@ -193,6 +219,92 @@ public class BarDataset extends BackgroundBorderHoverDataset<BarDataset, BigDeci
 	 */
 	public BarDataset setStack(String stack) {
 		this.stack = stack;
+		return this;
+	}
+
+	/**
+	 * @see #setBarPercentage(BigDecimal barPercentage)
+	 */
+	public BigDecimal getBarPercentage() {
+		return this.barPercentage;
+	}
+
+	/**
+	 * <p>
+	 * Default {@code 0.9}
+	 * </p>
+	 *
+	 * Percent (0-1) of the available width each bar should be within the category width.
+	 * 1.0 will take the whole category width and put the bars right next to each other.
+	 */
+	public BarDataset setBarPercentage(BigDecimal barPercentage) {
+		this.barPercentage = barPercentage;
+		return this;
+	}
+
+	/**
+	 * @see #setCategoryPercentage(BigDecimal categoryPercentage)
+	 */
+	public BigDecimal getCategoryPercentage() {
+		return this.categoryPercentage;
+	}
+
+	/**
+	 * <p>
+	 * Default {@code 0.8}
+	 * </p>
+	 *
+	 * Percent (0-1) of the available width each category should be within the sample width.
+	 */
+	public BarDataset setCategoryPercentage(BigDecimal categoryPercentage) {
+		this.categoryPercentage = categoryPercentage;
+		return this;
+	}
+
+	/**
+	 * @see #setBarThickness(BarThickness)
+	 */
+	public BarThickness getBarThickness() {
+		return barThickness;
+	}
+
+	/**
+	 * Manually set width of each bar in pixels.
+	 * If set to 'flex', it computes "optimal" sample widths that globally arrange bars side by side.
+	 * If not set (default), bars are equally sized based on the smallest interval.
+	 */
+	public BarDataset setBarThickness(BarThickness barThickness) {
+		this.barThickness = barThickness;
+		return this;
+	}
+
+	/**
+	 * @see #setGridLines(GridLines gridLines)
+	 */
+	public BigDecimal getMaxBarThickness() {
+		return maxBarThickness;
+	}
+
+	/**
+	 * Set this to ensure that bars are not sized thicker than this.
+	 */
+	public BarDataset setMaxBarThickness(BigDecimal maxBarThickness) {
+		this.maxBarThickness = maxBarThickness;
+		return this;
+	}
+
+	/**
+	 * @see #setMinBarLength(BigDecimal)
+	 */
+	public BigDecimal getMinBarLength() {
+		return minBarLength;
+	}
+
+	/**
+	 * Set this to ensure that bars have a minimum length in pixels.
+	 */
+	public BarDataset setMinBarLength(BigDecimal minBarLength) {
+		this.minBarLength = minBarLength;
 		return this;
 	}
 
