@@ -31,7 +31,7 @@ import be.ceau.chart.options.RadarOptions;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
-public class RadarChart implements Chart {
+public class RadarChart extends BaseChart<RadarChart> {
 
 	private static final ObjectWriter WRITER = new ObjectMapper()
 			.writerWithDefaultPrettyPrinter()

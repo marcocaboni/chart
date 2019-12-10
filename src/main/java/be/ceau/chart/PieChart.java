@@ -31,7 +31,7 @@ import be.ceau.chart.options.PieOptions;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
-public class PieChart implements Chart {
+public class PieChart extends BaseChart<PieChart> {
 
 	private static final ObjectWriter WRITER = new ObjectMapper()
 			.writerWithDefaultPrettyPrinter()

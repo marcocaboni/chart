@@ -30,7 +30,7 @@ import be.ceau.chart.options.Options;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
-public class DoughnutChart implements Chart {
+public class DoughnutChart extends BaseChart<DoughnutChart> {
 
 	private static final ObjectWriter WRITER = new ObjectMapper()
 			.writerWithDefaultPrettyPrinter()

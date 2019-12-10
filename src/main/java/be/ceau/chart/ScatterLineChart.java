@@ -32,7 +32,7 @@ import be.ceau.chart.options.scales.LinearScale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
-public class ScatterLineChart implements Chart {
+public class ScatterLineChart extends BaseChart<ScatterLineChart> {
 
 	private static final ObjectWriter WRITER = new ObjectMapper()
 			.writerWithDefaultPrettyPrinter()
